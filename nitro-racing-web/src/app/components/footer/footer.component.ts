@@ -103,8 +103,23 @@ import { CommonModule } from '@angular/common';
         </div>
 
         <!-- Bottom Line -->
-        <div class="border-t border-white/[0.06] pt-6 flex flex-col md:flex-row items-center justify-between text-xs text-slate-500 gap-4">
-          <p>© 2026 Nitro Racing Modz. All rights reserved. NITRO RACING motorcycle engineering.</p>
+        <div class="border-t border-white/[0.06] pt-6 flex flex-col lg:flex-row items-center justify-between text-xs text-slate-500 gap-4">
+          <p>© 2026 Nitro Racing Modz. All rights reserved. Precision motorcycle engineering.</p>
+          
+          <!-- Developer Credit -->
+          <div class="flex items-center gap-1.5 font-['JetBrains_Mono'] text-[11px] text-gray-400">
+            <span>Developed by</span>
+            <a 
+              href="http://arivomtechnologies.com/" 
+              target="_blank" 
+              rel="noopener noreferrer" 
+              class="text-[#00E676] hover:text-[#38BDF8] font-bold transition-colors inline-flex items-center gap-1 group"
+            >
+              <span>Arivom Technologies</span>
+              <span class="text-[10px] transition-transform group-hover:translate-x-0.5">↗</span>
+            </a>
+          </div>
+
           <div class="flex items-center gap-6">
             <a routerLink="/" class="hover:text-slate-300">Home</a>
             <a routerLink="/about" class="hover:text-slate-300">About</a>
