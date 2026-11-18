@@ -1,0 +1,15 @@
+<div class="min-h-screen bg-[#0A0C10] text-[#CBD5E1] flex flex-col font-sans selection:bg-[#00E676] selection:text-[#0A0C10]">
+  <!-- Sticky Header Bar -->
+  <app-navbar></app-navbar>
+
+  <!-- Main View Area -->
+  <main class="flex-grow">
+    <router-outlet></router-outlet>
+  </main>
+
+  <!-- Global Footer -->
+  <app-footer></app-footer>
+
+  <!-- Global Floating Speed Dial (Call, WhatsApp, Scroll Top) -->
+  <app-floating-widget></app-floating-widget>
+</div>

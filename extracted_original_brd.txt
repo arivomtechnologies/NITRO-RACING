@@ -1,0 +1,260 @@
+=== PAGE 1 ===
+Business Requirements Document
+Nitro Racing Automobile Service Center Management System
+Arivom Technologies, Chennai  |  BRD - Nitro Racing Automobile Service Center Management System
+Page 1
+Item
+Details
+Project
+Nitro Racing Automobile Service Center Management System
+Prepared by
+Arivom Technologies, Chennai
+Date
+11 Nov 2026
+Version
+1.0
+Status
+For client review and approval
+
+=== PAGE 2 ===
+Arivom Technologies, Chennai  |  BRD - Nitro Racing Automobile Service Center Management System
+Page 2
+1. Project Overview
+Nitro Racing is a bike service center business with multiple branches (for example Ambattur and Avadi). This
+project delivers a web application with a public website and a secure management portal. The portal handles
+branches, staff, bike service job cards, status tracking, invoicing and sales dashboards.
+Goals
+  Manage all branches and staff from one place
+ Replace paper records with digital job cards for every bike that comes in
+ Generate PDF invoices quickly
+ Give owners clear branch-wise and overall business insights
+ Work well on mobile, since staff will mostly use phones
+2. Scope
+In scope
+  Public website (see section 3)
+ Login-based management portal: store management, user management, job cards, status tracking,
+invoices and dashboards
+3. Public Website
+Pages: Home, About Us, Services, Enquiry / Contact, Testimonials, Login.
+  Enquiry form submissions are saved in the system and emailed to the business.
+ Login button in the header. No Register button.
+4. User Roles
+Role
+Count
+Created by
+Super Admin
+1
+System setup
+Branch Admin
+1 per branch
+Super Admin
+Employee
+Many per branch
+Super Admin or Branch Admin
+Hierarchy: Super Admin, then Branches, then Branch Admin, then Employees.
+
+=== PAGE 3 ===
+Arivom Technologies, Chennai  |  BRD - Nitro Racing Automobile Service Center Management System
+Page 3
+Access matrix
+Feature
+Super Admin
+Branch Admin
+Employee
+Add / edit / delete stores
+ Yes
+ No
+ No
+View list of stores
+ Yes (all)
+ No (own branch only)
+ No
+Create / edit / delete Branch Admins
+ Yes
+ No
+ No
+Create / edit / delete Employees
+ Yes (all)
+ Yes (own branch)
+ No
+Branch dashboard
+ Yes (any branch)
+ Yes (own branch)
+ No
+Overall dashboard (all branches)
+ Yes
+ No
+ No
+Create / update job cards
+ Yes
+ Yes
+ Yes
+Update job status
+ Yes
+ Yes
+ Yes
+Generate invoice (PDF)
+ Yes
+ Yes
+ Yes
+5. Functional Requirements
+Priority: M = Must, S = Should, N = Nice to have.
+5.1 Login and account
+ID
+Requirement
+Priority
+ FR-01
+Login with username/email and password. No self-registration.
+ M
+ FR-02
+Forgot password / reset password via email link.
+ M
+ FR-03
+Logout button. A login session stays active for at least 1 day (24 hours); the user logs in again
+the next day. Mainly for employees and branch admins on mobile.
+ M
+ FR-04
+Save credentials: the login page supports saving credentials (Remember me and browser
+password autofill) so users need not retype them.
+ M
+ FR-05
+After login, show a greeting and only the modules allowed for that role, e.g. "Hi Super Admin",
+"Hi Branch Admin - Ambattur", "Hi Hari - Ambattur (Employee)".
+ M
+ FR-06
+Change password; admins can deactivate a user.
+ S
+5.2 Store (branch) management
+ID
+Requirement
+Priority
+ FR-07
+Super Admin can add a new store (name, address, phone, etc.).
+ M
+ FR-08
+Stores page lists all stores, e.g. "Nitro Racing - Ambattur Branch", "Nitro Racing - Avadi
+Branch".
+ M
+ FR-09
+Super Admin can update and delete a store.
+ M
+ FR-10
+Clicking a store opens that branch's dashboard.
+ M
+ FR-11
+The system must support any number of branches without code changes.
+ M
+5.3 User management
+ID
+Requirement
+Priority
+ FR-12
+Super Admin creates Branch Admins and assigns each to a branch.
+ M
+
+=== PAGE 4 ===
+Arivom Technologies, Chennai  |  BRD - Nitro Racing Automobile Service Center Management System
+Page 4
+ID
+Requirement
+Priority
+ FR-13
+Super Admin and Branch Admin can create, update and delete Employees. A Branch Admin
+only sees and manages their own branch's employees.
+ M
+5.4 Job card (bike entry)
+ID
+Requirement
+Priority
+ FR-14
+Any of the 3 roles can create a job card with these fields:
+Bike: bike number, brand, model, bike name, KMs driven at entry
+Service: purpose of entry (e.g. engine oil change), date and time of entry, assigned mechanic
+Customer: name, phone number, address
+Payment: advance amount paid (if any)
+ M
+ FR-15
+Each job card belongs to one branch.
+ M
+ FR-16
+Status flow: Received, Work In Progress, Completed (and optionally Delivered). Any of the 3
+roles can change status.
+ M
+ FR-17
+Search and filter job cards by bike number, customer phone, status and date.
+ S
+ FR-18
+Keep a history of status changes (who changed it and when).
+ S
+5.5 Invoice
+ID
+Requirement
+Priority
+ FR-19
+Any of the 3 roles can generate an invoice from a job card.
+ M
+ FR-20
+Invoice includes business name and branch details, invoice number and date, customer and
+bike details, itemised services/parts with amounts, tax (if applicable), advance paid, balance due
+and total.
+ M
+ FR-21
+Invoice downloads as PDF only (no Excel).
+ M
+ FR-22
+Invoice can be shared or printed from a mobile phone.
+ S
+5.6 Dashboard
+ID
+Requirement
+Priority
+ FR-23
+Dashboard has 4-5 charts: monthly sales, monthly revenue, monthly profit, types of bikes
+entered, and (suggested) jobs by status.
+ M
+ FR-24
+Super Admin sees each branch's dashboard plus an overall view across all branches.
+ M
+ FR-25
+Branch Admin sees only their own branch's data.
+ M
+ FR-26
+Employees cannot access any dashboard.
+ M
+6. Non-Functional Requirements
+  Responsive: works on mobile, laptop and desktop, with a mobile-first design for the job card and invoice
+screens.
+ Scalable: supports many branches, users and records without redesign.
+ Security: encrypted passwords, HTTPS, role-based access on every page and API, data separated by
+branch.
+ Performance: pages load in about 3 seconds on a normal mobile connection.
+ Availability and backup: daily automatic data backup.
+ Browsers: latest Chrome, Safari, Edge and Firefox.
+
+=== PAGE 5 ===
+Arivom Technologies, Chennai  |  BRD - Nitro Racing Automobile Service Center Management System
+Page 5
+7. Assumptions
+  One Super Admin account for the whole business.
+ Staff will have internet access at the service center.
+ Invoice format and branding will be provided by the client.
+ English UI only (to be confirmed).
+8. Open Questions for the Client
+ 1. How should profit be calculated? We need to know whether parts purchase cost and expenses will be
+entered in the system.
+2. Is GST/tax required on invoices? Please share the GST number and invoice format.
+3. Should customers receive SMS/WhatsApp updates on status changes?
+4. Should the Delivered status be added after Completed?
+5. Can an Employee edit or delete a job card after creation, or only create and update status?
+6. Does the client already have a domain, hosting and logo/brand colours?
+7. Is old data (existing customers/records) to be migrated?
+8. Is a language other than English (e.g. Tamil) needed?
+9. Timeline, Cost and Sign-off
+Timeline: 2 months   |   Cost: INR 60,000
+Client (Nitro Racing)
+Arivom Technologies
+Name
+Fertrick
+Balasubramanian
+Signature
+Date

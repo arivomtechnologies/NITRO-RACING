@@ -1,0 +1,14 @@
+# Python
+.venv/
+venv/
+__pycache__/
+*.pyc
+
+# Node & Angular
+nitro-racing-web/node_modules/
+nitro-racing-web/.angular/
+nitro-racing-web/dist/
+
+# OS
+.DS_Store
+Thumbs.db
